@@ -28,12 +28,14 @@ function fishBtnClicked() {
   // Catch fish based on character
   if (character === "steve") {
     // STEVE: Cod 70%, Salmon 20%, Tropical 5%, Puffer 5%
-    catchFish(number < 1, fishType = any, fishNum = any);
-    }
-  else if (character === "alex") {
+    catchFish(0.7, 0.9, 0.95);
+  } else if (character === "alex") {
     // ALEX: Cod 10%, Salmon 10%, Tropical 30%, Puffer 50%
-    catchFish(number < 1, fishType = any, fishNum = any); 
-}
+    catchFish(0.1, 0.2, 0.5);
+  } else if (character === "villager") {
+    // VILLAGER: Cod 25%, Salmon 25%, Tropical 25%, Puffer 25%
+    catchFish(0.4, 0.75, 0.2)
+  }
 }
 
 // Event handler for resetBtn
@@ -49,22 +51,23 @@ function resetBtnClicked() {
   numPufferSpan.innerHTML = numPuffer;
 }
 
-function catchFish(number, fishType, fishNum) {
-        if (number < 1) {
-          fishNum++;
-          fishNumSpan.innerHTML = fishNum;
-          resultImg.src = `img/${fishType}.png`;
-        } else if (number < 1) {
-          fishNum++;
-          fishNumSpan.innerHTML = fishNum;
-          resultImg.src = `img/${fishType}.png`;
-        } else if (number < 1) {
-          fishNum++;
-          fishNumSpan.innerHTML = fishNum;
-          resultImg.src = `img/${fishType}.png`;
-        } else {
-          fishNum++;
-          fishNumSpan.innerHTML = fishNum;
-          resultImg.src = `img/${fishType}.png`;
-        }
+function catchFish(codFish, salmonFish, tropicalFish) {
+    let randNum = Math.random();
+    if (randNum < codFish) {
+      numCod++;
+      numCodSpan.innerHTML = numCod;
+      resultImg.src = "img/Raw-Cod.png";
+    } else if (randNum < salmonFish) {
+      numSalmon++;
+      numSalmonSpan.innerHTML = numSalmon;
+      resultImg.src = "img/Raw-Salmon.png";
+    } else if (randNum < tropicalFish) {
+      numTropical++;
+      numTropicalSpan.innerHTML = numTropical;
+      resultImg.src = "img/Tropical-Fish.png";
+    } else {
+      numPuffer++;
+      numPufferSpan.innerHTML = numPuffer;
+      resultImg.src = "img/Pufferfish.png";
+    }
 }
