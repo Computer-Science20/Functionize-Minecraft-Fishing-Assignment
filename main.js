@@ -34,7 +34,7 @@ function fishBtnClicked() {
     catchFish(0.1, 0.2, 0.5);
   } else if (character === "villager") {
     // VILLAGER: Cod 25%, Salmon 25%, Tropical 25%, Puffer 25%
-    catchFish(0.4, 0.75, 0.2)
+    catchFish(0.25, 0.5, 0.75)
   }
 }
 
